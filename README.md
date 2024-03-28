@@ -1,2 +1,3 @@
-# single-cell-rna-seq
-This project uses computational methods applied to single-cell resolved multiomics data, specifically scRNA-seq data
+# Project Summary
+
+This project focuses on decoding single-cell resolved multiomics data, specifically scRNA-seq data, using PCA-based and GNN-driven clustering. The project acknowledges the significant advancements in Next Generation Sequencing technologies and the resulting explosion of multimodal genomics data. The primary tool of focus is single-cell RNA sequencing (scRNA-seq), which provides gene expression profiles of individual cells, offering unprecedented insights into cellular heterogeneity and dynamics. However, the project also recognizes the computational challenges posed by scRNA-seq data analysis and interpretation. Traditional data analysis methods like Seurat (R library) and Scanpy (Python Library), which use Principal Component Analysis (PCA), are utilized in this project to process scRNA-seq data and extract biologically-relevant insights.
