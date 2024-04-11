@@ -12,6 +12,6 @@ The pipeline is meticulously structured into several sections, each addressing a
 
 4- **Clustering Models and Fine-Tuning**: I selected the Louvain model and the Leiden model for clustering due to their efficiency and effectiveness in uncovering biological heterogeneity. I fine-tuned their resolution parameter based on performance metrics.
 
-5- **Models Evaluation and Validation**: I evaluated and compared the two clustering models using visual inspection, performance metrics, such as the Silhouette Score, Davies-Bouldin Score, and Calinski-Harabasz Score, and more importantly, the biological context. Based on this, I chose to proceed with the Louvain model. I then assessed the robustness of the Louvain model by applying the same clustering process to stratified subsets of the original data and comparing the outcomes.
+5- **Models Evaluation and Validation**: I evaluated and compared the two clustering models using visual inspection, performance metrics, such as the Silhouette Score, Davies-Bouldin Score, Calinski-Harabasz Score, and more importantly, and the biological context. Based on this, I chose to proceed with the Louvain model. I then assessed the robustness of the Louvain model by applying the same clustering process to stratified subsets of the original data and comparing the outcomes.
 
 6- **Cell Type Identification**: Marker genes were then used to annotate the identified clusters with corresponding cell types.
