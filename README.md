@@ -1,17 +1,13 @@
-#### Overview
-This project outlines a comprehensive computational pipeline to analyze single-cell RNA sequencing (scRNA-seq) data for human pancreatic islets, aiming to cluster cells based on gene expression profiles and identify cell types using marker genes.
+# scRNA-seq Analysis Workflow
 
-#### Methodology
-The pipeline is meticulously structured into several sections, each addressing a critical aspect of scRNA-seq data analysis:
+1. **Data Preprocessing**: The raw scRNA-seq data was first preprocessed. This step involved quality control measures to remove low-quality cells and genes, normalization to account for differences in sequencing depth, and identification and correction of batch effects.
 
-1- **Quality Control and Preprocessing**: I employed rigorous quality control measures to filter out low-quality cells. Subsequently, I normalized and logarithmized the data, ensuring consistency across cells for subsequent analyses.
+2. **Dimensionality Reduction**: The high-dimensional scRNA-seq data was then subjected to dimensionality reduction using Principal Component Analysis (PCA) via the Scanpy library. This step reduces the complexity of the data while retaining the most important variation.
 
-2- **Feature Engineering and Dimensionality Reduction**: I identified highly variable genes, and applied Principal Component Analysis (PCA) to linearly reduce dimensionality while preserving the most significant variance in the data. I calculated the neighborhood graph, laying the groundwork for clustering and visualization algorithms that require an understanding of cell relationships. I also employed Uniform Manifold Approximation and Projection (UMAP) for non-linear dimensionality reduction, projecting data onto a two-dimensional space conducive to visual interpretation while preserving local and global structures.
+3. **Clustering**: The dimensionality-reduced data was then clustered to identify groups of cells with similar gene expression profiles. This was done using the Leiden algorithm in Scanpy.
 
-3- **Batch Correction**: I utilized the ComBat method to correct batch effects among the samples, a critical step to ensure that the biological conclusions drawn from the data are not confounded by technical artifacts.
+4. **Differential Expression Analysis**: Differential expression analysis was performed to identify genes that are significantly differentially expressed between the identified clusters. This helps in characterizing the clusters and understanding their biological significance.
 
-4- **Clustering Models and Fine-Tuning**: I selected the Louvain model and the Leiden model for clustering due to their efficiency and effectiveness in uncovering biological heterogeneity. I fine-tuned their resolution parameter based on performance metrics.
+5. **Visualization**: The results were visualized using various plots such as PCA plots, UMAP plots, and violin plots for differential expression results. This helps in understanding the data and the results of the analysis.
 
-5- **Models Evaluation and Validation**: I evaluated and compared the two clustering models using visual inspection, performance metrics, such as the Silhouette Score, Davies-Bouldin Score, Calinski-Harabasz Score, and more importantly, and the biological context. Based on this, I chose to proceed with the Louvain model. I then assessed the robustness of the Louvain model by applying the same clustering process to stratified subsets of the original data and comparing the outcomes.
-
-6- **Cell Type Identification**: Marker genes were then used to annotate the identified clusters with corresponding cell types.
+6. **Latent Variable Modeling**: The scVI toolkit was used for latent variable modeling. This step helps in further understanding the underlying structure of the data and can be used for tasks such as imputation of missing data and prediction of gene expression.
